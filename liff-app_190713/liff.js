@@ -9,7 +9,7 @@ const PSDI_SERVICE_UUID         = 'E625601E-9E55-4597-A598-76018A0D293D'; // Dev
 const PSDI_CHARACTERISTIC_UUID  = '26E2B12B-85F0-4F3F-9FDD-91D114270E6E';
 
 // UI settings
-let ledState = 0; // true: LED on, false: LED off
+let ledState = false; // true: LED on, false: LED off
 let clickCount = 0;
 
 // -------------- //
@@ -24,19 +24,10 @@ window.onload = () => {
 // Handler functions //
 // ----------------- //
 
-function handlerToggleLed1() {
-    ledState = 1;
-//    uiToggleLedButton(ledState);
-    liffToggleDeviceLedState(ledState);
-}
-function handlerToggleLed2() {
-    ledState = 2;
-//    uiToggleLedButton(ledState);
-    liffToggleDeviceLedState(ledState);
-}
-function handlerToggleLed3() {
-    ledState = 3;
-//    uiToggleLedButton(ledState);
+function handlerToggleLed() {
+    ledState = !ledState;
+
+    uiToggleLedButton(ledState);
     liffToggleDeviceLedState(ledState);
 }
 
@@ -45,14 +36,14 @@ function handlerToggleLed3() {
 // ------------ //
 
 function uiToggleLedButton(state) {
-//    const el = document.getElementById("btn-led-toggle");
-//    el.innerText = state ? "Switch LED OFF" : "Switch LED ON";
+    const el = document.getElementById("btn-led-toggle");
+    el.innerText = state ? "Switch LED OFF" : "Switch LED ON";
 
-//    if (state) {
-//      el.classList.add("led-on");
-//    } else {
-//      el.classList.remove("led-on");
-//    }
+    if (state) {
+      el.classList.add("led-on");
+    } else {
+      el.classList.remove("led-on");
+    }
 }
 
 function uiCountPressButton() {
@@ -272,7 +263,9 @@ function liffGetButtonStateCharacteristic(characteristic) {
 function liffToggleDeviceLedState(state) {
     // on: 0x01
     // off: 0x00
-    window.ledCharacteristic.writeValue(state).catch(error => {
+    window.ledCharacteristic.writeValue(
+        state ? new Uint8Array([0x01]) : new Uint8Array([0x00])
+    ).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
 }

@@ -265,7 +265,7 @@ function liffGetButtonStateCharacteristic(characteristic) {
 
 function liffToggleDeviceLedState(state) {
 
-    window.ledCharacteristic.writeValue(new Uint8Array(state).catch(error => {
+    window.ledCharacteristic.writeValue(new Uint8Array([0x01]).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
 

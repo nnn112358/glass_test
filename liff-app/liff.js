@@ -25,8 +25,7 @@ window.onload = () => {
 // ----------------- //
 
 function handlerToggleLed() {
-    ledState = !ledState;
-
+    ledState = 4;
     uiToggleLedButton(ledState);
     liffToggleDeviceLedState(ledState);
 }
@@ -263,9 +262,7 @@ function liffGetButtonStateCharacteristic(characteristic) {
 function liffToggleDeviceLedState(state) {
     // on: 0x01
     // off: 0x00
-    window.ledCharacteristic.writeValue(
-        state ? new Uint8Array([0x01]) : new Uint8Array([0x00])
-    ).catch(error => {
+    window.ledCharacteristic.writeValue(state).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
 }

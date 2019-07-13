@@ -44,7 +44,7 @@ function handlerToggleLed3() {
 // UI functions //
 // ------------ //
 
-//function uiToggleLedButton(state) {
+function uiToggleLedButton(state) {
 //    const el = document.getElementById("btn-led-toggle");
 //    el.innerText = state ? "Switch LED OFF" : "Switch LED ON";
 
@@ -53,7 +53,7 @@ function handlerToggleLed3() {
 //    } else {
 //      el.classList.remove("led-on");
 //    }
-//}
+}
 
 function uiCountPressButton() {
     clickCount++;
@@ -272,8 +272,7 @@ function liffGetButtonStateCharacteristic(characteristic) {
 function liffToggleDeviceLedState(state) {
     // on: 0x01
     // off: 0x00
-    window.ledCharacteristic.writeValue(state)
-    ).catch(error => {
+    window.ledCharacteristic.writeValue(state).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
 }

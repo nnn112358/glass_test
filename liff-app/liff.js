@@ -29,6 +29,11 @@ function handlerToggleLed() {
     uiToggleLedButton(ledState);
     liffToggleDeviceLedState(ledState);
 }
+function handlerToggleLed1() {
+    ledState = 1;
+    uiToggleLedButton(ledState);
+    liffToggleDeviceLedState(ledState);
+}
 
 // ------------ //
 // UI functions //

@@ -25,10 +25,10 @@ window.onload = () => {
 // ----------------- //
 
 function handlerToggleLed() {
-    ledState = 3;
+    ledState2 = 3;
 
     uiToggleLedButton(ledState);
-    liffToggleDeviceLedState(ledState);
+    liffToggleDeviceLedState(ledState2);
 }
 
 // ------------ //

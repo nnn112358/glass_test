@@ -21,9 +21,9 @@
       <p>
         <button id="btn-led-toggle" class="btn btn-led-toggle" onclick="handlerToggleLed1()">forward</button>
       </p>
-        <button id="btn-led-toggle" class="btn btn-led-toggle" onclick="handlerToggleLed2()">left-turn</button>
-        <button id="btn-led-toggle" class="btn btn-led-toggle" onclick="handlerToggleLed2()">stop</button>
-        <button id="btn-led-toggle" class="btn btn-led-toggle" onclick="handlerToggleLed3()">right-turn</button>
+        <button id="btn-led-toggle" class="btn btn-led-toggle" onclick="handlerToggleLed2()">left</button>
+        <button id="btn-led-toggle" class="btn btn-led-toggle" onclick="handlerToggleLed5()">stop</button>
+        <button id="btn-led-toggle" class="btn btn-led-toggle" onclick="handlerToggleLed3()">right</button>
       <p>
         <button id="btn-led-toggle" class="btn btn-led-toggle" onclick="handlerToggleLed4()">backward</button>
       </p>
